@@ -79,7 +79,12 @@ tasks {
             attribute("ScriptEngine-Name", "kts")
             attribute("ScriptEngine-Version", "1.4")
 
+            // embed jsr
+            attribute("Include-Resource", "kotlin-script-util-1.4.0.jar")
+            attribute("Bundle-ClassPath", ".,kotlin-script-util-1.4.0.jar")
 
+            privatePackage("org.jetbrains.kotlin.script.*")
+            excludePackage("org.sonatype.aether.*", "com.jcabi.aether")
         }
     }
 }
