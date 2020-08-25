@@ -43,6 +43,7 @@ dependencies {
     compileOnly("org.jetbrains.kotlin:kotlin-script-runtime:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-script-util:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.4.0")
+    compileOnly("org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.4.0") // runtime
 
     compileOnly("com.adobe.aem:uber-jar:6.5.0:apis")
@@ -80,19 +81,18 @@ tasks {
             attribute("ScriptEngine-Version", "1.4")
 
             // embed jsr
-            attribute("Include-Resource", "kotlin-script-util-1.4.0.jar,kotlin-script-runtime-1.4.0.jar,kotlin-scripting-compiler-embeddable-1.4.0.jar,/Users/krystian.panek/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-compiler-impl-embeddable/1.4.0/b2446c3e97bc1aeb4c5e5565c25393f377827aca/kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
-            attribute("Bundle-ClassPath", ".,kotlin-script-util-1.4.0.jar,kotlin-script-runtime-1.4.0.jar,kotlin-scripting-compiler-embeddable-1.4.0.jar,kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
+            attribute("Include-Resource", "kotlin-script-util-1.4.0.jar,kotlin-script-runtime-1.4.0.jar,kotlin-scripting-compiler-embeddable-1.4.0.jar,/Users/krystian.panek/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-compiler-impl-embeddable/1.4.0/b2446c3e97bc1aeb4c5e5565c25393f377827aca/kotlin-scripting-compiler-impl-embeddable-1.4.0.jar,trove4j-1.0.20181211.jar,kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
+            attribute("Bundle-ClassPath", ".,kotlin-script-util-1.4.0.jar,kotlin-script-runtime-1.4.0.jar,kotlin-scripting-compiler-embeddable-1.4.0.jar,kotlin-scripting-compiler-impl-embeddable-1.4.0.jar,trove4j-1.0.20181211.jar,kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
 
             exportPackage("kotlin.script.*")
-            privatePackage("org.jetbrains.kotlin.*")
+            privatePackage("org.jetbrains.kotlin.*", "org.jetbrains.jps.*", "gnu.trove.*")
             excludePackage("org.sonatype.aether.*", "com.jcabi.aether", "sun.misc", "sun.nio.ch", "com.sun.*", "gnu.trove",
                     "org.jetbrains.kotlin.com.*", "org.jetbrains.kotlin.org.*", "org.jetbrains.org.*",
                     "org.jetbrains.ide", "org.jetbrains.annotations", "org.checkerframework.*",
                     // TODO ?
                     "javaslang.*",
                     "net.rubygrapefruit.platform",
-                    "kotlinx.coroutines",
-                    "org.jetbrains.jps.*"
+                    "kotlinx.coroutines"
             )
         }
     }
