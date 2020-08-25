@@ -80,11 +80,20 @@ tasks {
             attribute("ScriptEngine-Version", "1.4")
 
             // embed jsr
-            attribute("Include-Resource", "kotlin-script-util-1.4.0.jar")
-            attribute("Bundle-ClassPath", ".,kotlin-script-util-1.4.0.jar")
+            attribute("Include-Resource", "kotlin-script-util-1.4.0.jar,kotlin-script-runtime-1.4.0.jar,kotlin-scripting-compiler-embeddable-1.4.0.jar,/Users/krystian.panek/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-compiler-impl-embeddable/1.4.0/b2446c3e97bc1aeb4c5e5565c25393f377827aca/kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
+            attribute("Bundle-ClassPath", ".,kotlin-script-util-1.4.0.jar,kotlin-script-runtime-1.4.0.jar,kotlin-scripting-compiler-embeddable-1.4.0.jar,kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
 
-            privatePackage("org.jetbrains.kotlin.script.*")
-            excludePackage("org.sonatype.aether.*", "com.jcabi.aether")
+            exportPackage("kotlin.script.*")
+            privatePackage("org.jetbrains.kotlin.*")
+            excludePackage("org.sonatype.aether.*", "com.jcabi.aether", "sun.misc", "sun.nio.ch", "com.sun.*", "gnu.trove",
+                    "org.jetbrains.kotlin.com.*", "org.jetbrains.kotlin.org.*", "org.jetbrains.org.*",
+                    "org.jetbrains.ide", "org.jetbrains.annotations", "org.checkerframework.*",
+                    // TODO ?
+                    "javaslang.*",
+                    "net.rubygrapefruit.platform",
+                    "kotlinx.coroutines",
+                    "org.jetbrains.jps.*"
+            )
         }
     }
 }
