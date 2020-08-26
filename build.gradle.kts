@@ -73,7 +73,8 @@ tasks {
         testLogging.showStandardStreams = true
     }
     packageCompose {
-        installBundle("org.jetbrains.kotlin:kotlin-osgi-bundle:1.4.0")
+        installBundleProject(":kotlin:stdlib")
+        installBundleProject(":kotlin:reflect")
         installBundleProject(":kotlin:coroutines-core")
         installBundleProject(":kotlin:coroutines-core-jvm")
         installBundleProject(":kotlin:compiler-embeddable")

@@ -1,5 +1,7 @@
 rootProject.name = "slinkt"
 
+include(":kotlin:stdlib")
+include(":kotlin:reflect")
 include(":kotlin:compiler-embeddable")
 include(":kotlin:coroutines-core")
 include(":kotlin:coroutines-core-jvm")
