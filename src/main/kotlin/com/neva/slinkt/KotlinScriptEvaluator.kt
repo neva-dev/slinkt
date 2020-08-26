@@ -6,6 +6,7 @@ import org.osgi.service.component.annotations.Activate
 import org.osgi.service.component.annotations.Component
 import org.slf4j.LoggerFactory
 import kotlin.script.experimental.api.compilerOptions
+import kotlin.script.experimental.api.valueOrNull
 import kotlin.script.experimental.host.StringScriptSource
 import kotlin.script.experimental.jvm.dependenciesFromClassloader
 import kotlin.script.experimental.jvm.jvm
@@ -23,6 +24,7 @@ class KotlinScriptEvaluator {
     }
     val scriptSource = StringScriptSource("""
       println("Hello World!")
+      "abecadlo!"
     """.trimIndent())
 
     val bundle = FrameworkUtil.getBundle(javaClass)
@@ -45,7 +47,8 @@ class KotlinScriptEvaluator {
     }
     val result = host.eval(scriptSource, compilationConfiguration, evaluationConfiguration)
 
-    LOG.error("Kotlin script result:\n{}", result)
+    LOG.error("Kotlin result object:\n{}", result)
+    LOG.error("Kotlin result value\n{}", result.valueOrNull())
   }
 
   companion object {
