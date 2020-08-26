@@ -5,6 +5,7 @@ import org.osgi.framework.wiring.BundleWiring
 import org.osgi.service.component.annotations.Activate
 import org.osgi.service.component.annotations.Component
 import org.slf4j.LoggerFactory
+import kotlin.script.experimental.api.compilerOptions
 import kotlin.script.experimental.host.StringScriptSource
 import kotlin.script.experimental.jvm.dependenciesFromClassloader
 import kotlin.script.experimental.jvm.jvm
@@ -34,6 +35,7 @@ class KotlinScriptEvaluator {
           wholeClasspath = true,
           classLoader = classLoader
         )
+        compilerOptions.append("-Xintellij-plugin-root", System.getProperty("user.dir"))
       }
     }
     val evaluationConfiguration = createJvmEvaluationConfigurationFromTemplate<Any> {
