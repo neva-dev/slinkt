@@ -12,7 +12,7 @@ tasks {
     jar {
         bundle {
             attribute("Include-Resource", "@kotlin-scripting-compiler-impl-embeddable-1.4.0.jar")
-            exportPackage("kotlin.script.*")
+            exportPackage("org.jetbrains.kotlin.scripting.*")
             excludePackage(
                     "org.sonatype.aether.*",
                     "com.jcabi.aether",
@@ -24,7 +24,6 @@ tasks {
                     "org.jetbrains.kotlin.com.google.errorprone.*",
                     "org.checkerframework.*",
                     // specific
-                    "kotlinx.coroutines.*",
                     "net.rubygrapefruit.platform"
             )
         }

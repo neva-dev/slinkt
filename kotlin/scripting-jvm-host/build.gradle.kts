@@ -5,13 +5,13 @@ plugins {
 }
 
 dependencies {
-    compileOnly("org.jetbrains.kotlin:kotlin-scripting-jvm:1.4.0")
+    compileOnly("org.jetbrains.kotlin:kotlin-scripting-jvm-host:1.4.0")
 }
 
 tasks {
     jar {
         bundle {
-            attribute("Include-Resource", "@kotlin-scripting-jvm-1.4.0.jar")
+            attribute("Include-Resource", "@kotlin-scripting-jvm-host-1.4.0.jar")
             exportPackage("kotlin.script.*")
             excludePackage(
                     "org.sonatype.aether.*",

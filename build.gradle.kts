@@ -44,6 +44,7 @@ dependencies {
 
     compileOnly("org.jetbrains.kotlin:kotlin-script-util:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.4.0")
+    compileOnly("org.jetbrains.kotlin:kotlin-scripting-jvm-host:1.4.0")
 
     compileOnly("com.adobe.aem:uber-jar:6.5.0:apis")
 
@@ -73,11 +74,14 @@ tasks {
     }
     packageCompose {
         installBundle("org.jetbrains.kotlin:kotlin-osgi-bundle:1.4.0")
+        installBundleProject(":kotlin:coroutines-core")
+        installBundleProject(":kotlin:coroutines-core-jvm")
         installBundleProject(":kotlin:compiler-embeddable")
         installBundleProject(":kotlin:script-runtime")
         installBundleProject(":kotlin:script-util")
         installBundleProject(":kotlin:scripting-common")
         installBundleProject(":kotlin:scripting-jvm")
+        installBundleProject(":kotlin:scripting-jvm-host")
         installBundleProject(":kotlin:scripting-compiler")
         installBundleProject(":kotlin:scripting-compiler-embeddable")
         installBundleProject(":kotlin:scripting-compiler-impl-embeddable")

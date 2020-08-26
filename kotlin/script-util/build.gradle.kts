@@ -24,7 +24,6 @@ tasks {
                     "org.jetbrains.kotlin.com.google.errorprone.*",
                     "org.checkerframework.*",
                     // specific
-                    "kotlinx.coroutines.*",
                     "net.rubygrapefruit.platform"
             )
         }
