@@ -1,0 +1,8 @@
+<idea-plugin>
+    <id>org.jetbrains.kotlin</id>
+    <version>1.4</version>
+    <extensionPoints>
+        <extensionPoint qualifiedName="org.jetbrains.kotlin.diagnosticSuppressor"
+                        interface="org.jetbrains.kotlin.resolve.diagnostics.DiagnosticSuppressor"/>
+    </extensionPoints>
+</idea-plugin>
