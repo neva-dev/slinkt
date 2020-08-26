@@ -36,7 +36,11 @@ class KotlinScriptEvaluator {
         )
       }
     }
-    val evaluationConfiguration = createJvmEvaluationConfigurationFromTemplate<Any> {}
+    val evaluationConfiguration = createJvmEvaluationConfigurationFromTemplate<Any> {
+      jvm {
+        // mainArguments()
+      }
+    }
     val result = host.eval(scriptSource, compilationConfiguration, evaluationConfiguration)
 
     LOG.error("Kotlin script result:\n{}", result)

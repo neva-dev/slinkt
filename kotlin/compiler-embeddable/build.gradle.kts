@@ -15,6 +15,8 @@ tasks {
             attribute("Include-Resource", "@kotlin-compiler-embeddable-1.4.0.jar")
             privatePackage("javaslang.*", "gnu.trove.*", "kotlin.*")
             exportPackage("org.jetbrains.kotlin.*")
+            importPackage("kotlin.reflect.*")
+            attribute("DynamicImport-Package", "*")
             excludePackage(
                     "org.sonatype.aether.*",
                     "com.jcabi.aether",
