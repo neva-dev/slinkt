@@ -27,8 +27,17 @@ allprojects {
 }
 
 dependencies {
-    compileOnly("org.osgi:osgi.cmpn:6.0.0")
-    compileOnly("org.osgi:org.osgi.core:6.0.0")
+    compileOnly("org.osgi:org.osgi.annotation.versioning:1.1.0")
+    compileOnly("org.osgi:org.osgi.annotation.bundle:1.0.0")
+    compileOnly("org.osgi:org.osgi.service.metatype.annotations:1.4.0")
+    compileOnly("org.osgi:org.osgi.service.component.annotations:1.4.0")
+    compileOnly("org.osgi:org.osgi.service.component:1.4.0")
+    compileOnly("org.osgi:org.osgi.service.cm:1.6.0")
+    compileOnly("org.osgi:org.osgi.service.event:1.3.1")
+    compileOnly("org.osgi:org.osgi.service.log:1.4.0")
+    compileOnly("org.osgi:org.osgi.framework:1.9.0")
+    compileOnly("org.osgi:org.osgi.resource:1.0.0")
+
     compileOnly("javax.servlet:servlet-api:2.5")
     compileOnly("javax.servlet:jsp-api:2.0")
     compileOnly("javax.jcr:jcr:2.0")
@@ -38,6 +47,8 @@ dependencies {
     compileOnly("org.apache.sling:org.apache.sling.jcr.api:2.4.0")
     compileOnly("org.apache.sling:org.apache.sling.models.api:1.3.6")
     compileOnly("org.apache.sling:org.apache.sling.settings:1.3.8")
+    compileOnly("org.apache.sling:org.apache.sling.scripting.api:2.2.0")
+    compileOnly("org.apache.sling:org.apache.sling.servlets.annotations:1.2.4")
     compileOnly("com.google.guava:guava:15.0")
     compileOnly("com.google.code.gson:gson:2.8.2")
     compileOnly("joda-time:joda-time:2.9.1")
@@ -45,8 +56,8 @@ dependencies {
     compileOnly("org.jetbrains.kotlin:kotlin-script-util:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:1.4.0")
     compileOnly("org.jetbrains.kotlin:kotlin-scripting-jvm-host:1.4.0")
-
-    compileOnly("com.adobe.aem:uber-jar:6.5.0:apis")
+    compileOnly("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.4.0")
+    compileOnly("org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.4.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
