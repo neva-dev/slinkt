@@ -2,7 +2,7 @@
 
 ## Description
 
-TBD
+Kotlin language support for Sling Framework.
 
 ## Building
 
