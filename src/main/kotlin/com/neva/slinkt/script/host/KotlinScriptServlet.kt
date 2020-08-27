@@ -18,20 +18,23 @@ import kotlin.script.experimental.host.StringScriptSource
     ServletResolverConstants.SLING_SERVLET_METHODS + "=GET",
   ]
 )
-class SimpleServlet : SlingSafeMethodsServlet() {
+class KotlinScriptServlet : SlingSafeMethodsServlet() {
 
   @Reference
   private lateinit var evaluator: KotlinScriptEvaluator
 
   override fun doGet(request: SlingHttpServletRequest, response: SlingHttpServletResponse) {
     val scriptSource = StringScriptSource("""
-      println("Hello World!")
-      "abecadlo!"
+      import org.osgi.framework.FrameworkUtil
+      FrameworkUtil.getBundle(com.neva.slinkt.script.host.KotlinScriptServlet).symbolicName
     """.trimIndent())
 
     val result = evaluator.eval(scriptSource)
 
     response.contentType = "text/plain"
-    response.writer.write(result.valueOrNull().toString())
+    response.writer.apply {
+      write("${result.valueOrNull().toString()}\n")
+      result.reports.forEach { write("$it\n") }
+    }
   }
 }

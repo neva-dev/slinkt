@@ -31,7 +31,7 @@ class KotlinScriptEvaluator {
                     wholeClasspath = true,
                     classLoader = classLoader
             )
-            compilerOptions.append("-Xintellij-plugin-root", System.getProperty("user.dir"))
+            compilerOptions.append("-Xintellij-plugin-root=${System.getProperty("user.dir")}")
         }
       compilationOptions()
     }

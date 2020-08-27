@@ -54,7 +54,6 @@ class KotlinEngine(
 
   private fun makeCompilerConfiguration() = CompilerConfiguration().apply {
     addJvmSdkRoots(PathUtil.getJdkClassesRootsFromCurrentJre())
-    classLoader
     addJvmClasspathRoots(templateClasspath)
     put(CLIConfigurationKeys.INTELLIJ_PLUGIN_ROOT, System.getProperty("user.dir")) //TODO tmp
     add(ComponentRegistrar.PLUGIN_COMPONENT_REGISTRARS, ScriptingCompilerConfigurationComponentRegistrar())
